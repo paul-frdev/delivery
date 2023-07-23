@@ -1,7 +1,6 @@
-import React from 'react'
-import { cn } from '../../libs'
+import React from 'react';
+import { cn } from '../../libs';
 import { motion, Variants } from 'framer-motion';
-
 
 interface ContainerPorps {
   children: React.ReactNode;
@@ -9,11 +8,11 @@ interface ContainerPorps {
   className?: string;
   initial?: string;
   animate?: string;
-  whileInView?: string
+  whileInView?: string;
   viewport?: {
     once: boolean;
     amount: number;
-  }
+  };
 }
 export const Container: React.FC<ContainerPorps> = ({ children, className, variants, initial, animate, viewport, whileInView }) => {
   return (
@@ -27,5 +26,5 @@ export const Container: React.FC<ContainerPorps> = ({ children, className, varia
     >
       {children}
     </motion.div>
-  )
-}
+  );
+};

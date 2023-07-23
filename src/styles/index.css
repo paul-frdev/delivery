@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+.testimonialSlider {
+  width: 1300px;
+  height: 440px;
+}
+
+
 @layer base {
   body {
     @apply font-body font-normal text-base text-primary bg-[#f5f3ff];

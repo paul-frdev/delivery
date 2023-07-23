@@ -7,7 +7,7 @@ interface ButtonProps {
   variants?: Variants;
   whileHover?: {
     scale: number;
-  }
+  };
   onClick?: () => void;
   disabled?: boolean;
   className?: string;
@@ -17,7 +17,10 @@ interface ButtonProps {
 export const Button: React.FC<ButtonProps> = ({ icon, children, variants, onClick, disabled, className, whileHover }) => {
   return (
     <motion.button
-      className={cn(`h-[60px] bg-accent py-[20px] px-[24px] text-white rounded-[5px] font-body uppercase tracking-[5%] text-base font-medium hover:bg-accent-hover flex items-center gap-6`, className)}
+      className={cn(
+        `h-[60px] bg-accent py-[20px] px-[24px] text-white rounded-[5px] font-body uppercase tracking-[5%] text-base font-medium hover:bg-accent-hover flex items-center gap-6`,
+        className
+      )}
       variants={variants}
       onClick={onClick}
       disabled={disabled}

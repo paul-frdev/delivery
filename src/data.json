@@ -1,13 +1,4 @@
 {
-  "faqData": {
-    "pretitle": "faq",
-    "title": "Questions and Answers on Professional Traffic Permits:",
-    "boyImg": "./images/faq/boy.svg"
-  },
-  "testimonialData": {
-    "pretitle": "testimonials",
-    "title": "Our Awesome Clients"
-  },
   "footerData": {
     "truckImg": "./images/footer/truck.svg",
     "hillImg": "./images/footer/hill.svg",

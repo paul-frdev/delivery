@@ -18,7 +18,6 @@ export const staggerHeader = {
   },
 };
 
-
 export const staggerTextContainer = {
   initial: {},
   animate: {
