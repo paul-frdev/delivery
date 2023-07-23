@@ -9,6 +9,7 @@ import { Container } from './ui/container';
 import { Nav } from './nav';
 import { Button } from './ui/button';
 import { NavMobile } from './navMobile';
+import { CgClose } from 'react-icons/cg';
 
 export const Header = () => {
   const [header, setHeader] = useState(false);
@@ -44,9 +45,9 @@ export const Header = () => {
           <Nav isHeader={header} />
           <Button>Contact Us</Button>
         </div>
-        <div onClick={() => setNavMobile((prev) => !prev)} className='lg:hidden cursor-pointer'>
-          <HiMenu className='text-4xl text-accent-hover' />
-        </div>
+        <motion.div variants={fadeInDown} onClick={() => setNavMobile((prev) => !prev)} className='lg:hidden cursor-pointer'>
+          {!navMobile ? <HiMenu size={45} className='text-4xl text-accent-hover' /> : <CgClose size={45} className='text-4xl text-accent-hover' />}
+        </motion.div>
         <div className={cn(`lg:hidden absolute top-full mt-2 w-full left-0 rounded-md overflow-hidden shadow-2xl transition-all`, navMobile ? 'max-h-[154px]' : 'max-h-0')}>
           <NavMobile />
         </div>

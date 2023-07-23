@@ -6,7 +6,7 @@ import girlImage from '../images/how/girl.svg'
 
 export const How = () => {
   return (
-    <section className='mb-[30px] lg:mb-[60px]'>
+    <section className='mb-[50px] lg:mb-[60px]'>
       <Container>
         <motion.div
           variants={staggerTextContainer}
