@@ -43,17 +43,17 @@ export const Accordion: React.FC<AccordionProps> = ({ data }) => {
               </div>
               <Transition
                 show={open}
-                enter="transition duration-300 ease-out"
+                enter="transition duration-100 ease-out"
                 enterFrom="transform scale-95 opacity-0"
                 enterTo="transform scale-100 opacity-100"
-                leave="transition duration-200 ease-in"
+                leave="transition duration-75 ease-in"
                 leaveFrom="transform scale-100 opacity-100"
                 leaveTo="transform scale-95 opacity-0"
               >
                 <Disclosure.Panel
                   static
                   as="div"
-                  className="p-4 bg-[#fff7f5] rounded-[10px] drop-shadow-primary font-Roboto text-[16px] leading-[30px] border-t border-gray-300 transition duration-300"
+                  className="p-4 bg-[#fff7f5] rounded-[10px] drop-shadow-primary font-Roboto text-[16px] leading-[30px] border-t border-gray-300 transition-all duration-500"
                 >
                   {data.answer}
                 </Disclosure.Panel>

@@ -7,8 +7,8 @@ interface NavProps {
 }
 export const Nav: React.FC<NavProps> = ({ isHeader }) => {
   return (
-    <nav className="flex items-center">
-      <ul className="flex gap-[56px] items-center">
+    <nav className="flex items-center transition-all duration-500">
+      <ul className={cn(`flex gap-[56px] items-center`, !isHeader ? ' mr-60': 'mr-0')}>
         {navData.map((route) => (
           <li key={route.name}>
             <a

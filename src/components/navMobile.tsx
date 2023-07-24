@@ -1,17 +1,36 @@
+import { motion } from 'framer-motion';
 import { navData } from '../constants';
+import React from 'react';
+import { Button } from './ui/button';
+import { mobileNav, mobileNavItem } from '../constants/variants';
 
-export const NavMobile = () => {
+interface NavMobileProps {
+  navMobile?: boolean;
+}
+
+const variants = {
+  open: { opacity: 1, x: 0 },
+  closed: { opacity: 0, x: 0 },
+}
+
+export const NavMobile: React.FC<NavMobileProps> = ({ navMobile }) => {
   return (
-    <nav className=" bg-accent w-full p-4">
-      <ul className="flex flex-col gap-y-4">
+    <motion.nav
+      initial={false}
+      animate={navMobile ? "open" : "closed"}
+      className=" bg-accent w-full p-4"
+    >
+      <motion.ul variants={mobileNav} className="flex flex-col mb-4 gap-y-4 transition-all duration-500">
         {navData.map((route) => (
-          <li key={route.name}>
-            <a className="text-white hover:text-accent transition-all duration-300" href={route.href}>
+          <li key={route.name}
+          >
+            <a className="text-white" href={route.href}>
               {route.name}
             </a>
           </li>
         ))}
-      </ul>
-    </nav>
+      </motion.ul>
+      <Button>Contact Us</Button>
+    </motion.nav>
   );
 };

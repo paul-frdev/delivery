@@ -3,7 +3,7 @@ import { HiMenu } from 'react-icons/hi';
 import logoImaV1 from '../images/header/logoV1.svg';
 import logoImaV2 from '../images/header/logoV2.svg';
 import { motion } from 'framer-motion';
-import { staggerHeader, fadeInDown } from '../constants/variants';
+import { staggerHeader, fadeInDown, fadeInUp } from '../constants/variants';
 import { cn } from '../libs';
 import { Container } from './ui/container';
 import { Nav } from './nav';
@@ -11,6 +11,25 @@ import { Button } from './ui/button';
 import { NavMobile } from './navMobile';
 import { CgClose } from 'react-icons/cg';
 
+const sidebar = {
+  open: (height = 1000) => ({
+    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+    transition: {
+      type: "spring",
+      stiffness: 20,
+      restDelta: 2
+    }
+  }),
+  closed: {
+    clipPath: "circle(30px at 40px 40px)",
+    transition: {
+      delay: 0.5,
+      type: "spring",
+      stiffness: 400,
+      damping: 40
+    }
+  }
+}
 export const Header = () => {
   const [header, setHeader] = useState(false);
   const [navMobile, setNavMobile] = useState(false);
@@ -43,18 +62,20 @@ export const Header = () => {
         </motion.a>
         <div className="hidden lg:flex gap-x-[96px]">
           <Nav isHeader={header} />
-          <Button>Contact Us</Button>
+          {header && <div className='transition-all duration-500'><Button>Contact Us</Button></div>}
         </div>
         <motion.div variants={fadeInDown} onClick={() => setNavMobile((prev) => !prev)} className="lg:hidden cursor-pointer">
-          {!navMobile ? <HiMenu size={45} className="text-4xl text-accent-hover" /> : <CgClose size={45} className="text-4xl text-accent-hover" />}
+          {!navMobile ? (
+            <HiMenu size={45} className={cn(`transition-all duration-500`, header ? 'text-4xl text-accent-hover' : 'text-white')} />
+          ) : <CgClose size={45} className={cn(`transition-all duration-500`, header ? 'text-4xl text-accent-hover' : 'text-white')} />}
         </motion.div>
         <div
           className={cn(
-            `lg:hidden absolute top-full mt-2 w-full left-0 rounded-md overflow-hidden shadow-2xl transition-all`,
-            navMobile ? 'max-h-[154px]' : 'max-h-0'
+            `lg:hidden absolute top-full mt-2 w-full left-0 rounded-md overflow-hidden shadow-2xl`,
+            navMobile ? 'max-h-[400px]' : 'max-h-0'
           )}
         >
-          <NavMobile />
+          <NavMobile navMobile={navMobile} />
         </div>
       </Container>
     </motion.header>

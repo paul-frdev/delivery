@@ -12,7 +12,7 @@ export const How = () => {
           initial="initial"
           whileInView="animate"
           viewport={{ once: false, amount: 0.6 }}
-          className="flex flex-col lg:flex-row gap-x-10 items-center"
+          className="flex flex-col lg:flex-row items-center"
         >
           <motion.div variants={fadeInRight} className="flex-1 mb-8 lg:mb-0">
             <img src={girlImage} alt="girl" className="max-w-[720px] w-full max-h-[678px] h-full" />

@@ -16,11 +16,11 @@ export const Slider: React.FC = () => {
     >
       {clients.map((client: Testimonial) => (
         <SwiperSlide key={client.id}>
-          <div className='bg-green-300'>
-            <p>{client.message}</p>
-            <div>
+          <div className='bg-white h-[360px] drop-shadow-primary rounded-[10px] px-[50px] pt-[60px] pb-[40px] flex flex-col justify-between'>
+            <p className='font-light leading-[30px]'>{client.message}</p>
+            <div className='flex items-center gap-x-5'>
               <img src={client.image} alt="client" className='w-full max-w-[60px] h-full max-h-[60px]' />
-              <h2></h2>
+              <span className='font-semibold'>{client.name}</span>
             </div>
           </div>
         </SwiperSlide>
