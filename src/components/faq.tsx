@@ -15,7 +15,7 @@ export const Faq = () => {
   };
 
   return (
-    <section className="min-h-[1150px] lg:bg-faq bg-no-repeat bg-right-top lg:pt-40 lg:pb-24 mb-[50px] lg:mb-[80px]">
+    <section className="min-h-[1150px] lg:bg-faq bg-no-repeat bg-right-top lg:pt-40 lg:pb-24 mb-[50px] lg:mb-[80px]" id="faqs">
       <Container>
         <motion.div
           variants={staggerTextContainer}

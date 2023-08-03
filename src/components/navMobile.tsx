@@ -1,36 +1,53 @@
 import { motion } from 'framer-motion';
 import { navData } from '../constants';
-import React from 'react';
+import React, { MouseEvent } from 'react';
 import { Button } from './ui/button';
-import { mobileNav, mobileNavItem } from '../constants/variants';
+import { mobileNav } from '../constants/variants';
 
 interface NavMobileProps {
   navMobile?: boolean;
+  onclick: (event: MouseEvent<HTMLLIElement>) => void;
 }
 
 const variants = {
-  open: { opacity: 1, x: 0 },
-  closed: { opacity: 0, x: 0 },
-}
+  opened: {
+    y: 0,
+    height: '450px',
+    opacity: 1,
+    transition: {
+      duration: 0.5,
+    },
+  },
+  closed: {
+    y: 0,
+    height: 'auto',
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+      delay: 0,
+    },
+  },
+};
 
-export const NavMobile: React.FC<NavMobileProps> = ({ navMobile }) => {
+export const NavMobile: React.FC<NavMobileProps> = ({ navMobile, onclick }) => {
   return (
     <motion.nav
-      initial={false}
-      animate={navMobile ? "open" : "closed"}
-      className=" bg-accent w-full p-4"
+      variants={variants}
+      initial="closed"
+      animate={navMobile ? 'opened' : 'closed'}
+      exit="closed"
+      className=" bg-accent w-full p-4 pt-8 mt-0"
     >
-      <motion.ul variants={mobileNav} className="flex flex-col mb-4 gap-y-4 transition-all duration-500">
+      <ul className="flex flex-col mb-4 gap-y-4">
         {navData.map((route) => (
-          <li key={route.name}
-          >
-            <a className="text-white" href={route.href}>
+          <li key={route.name} data-href={route.href} onClick={onclick}>
+            <a className="text-white hover:text-transparent pl-6" href={route.href}>
               {route.name}
             </a>
           </li>
         ))}
-      </motion.ul>
-      <Button>Contact Us</Button>
+      </ul>
+      <Button className=" bg-accent-hover">Contact Us</Button>
     </motion.nav>
   );
 };

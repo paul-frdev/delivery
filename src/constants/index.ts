@@ -1,7 +1,7 @@
 export const navData = [
-  { name: 'About', href: '/' },
-  { name: 'How to', href: '/' },
-  { name: 'Faqs', href: '/' },
+  { name: 'About', href: 'about-us' },
+  { name: 'How to', href: 'how' },
+  { name: 'Faqs', href: 'faqs' },
 ];
 
 export const accordions = [

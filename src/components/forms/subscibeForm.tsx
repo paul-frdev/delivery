@@ -5,8 +5,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { cn } from '../../libs';
 import { Button } from '../ui/button';
-import { CgArrowLongRight } from "react-icons/cg"
-
+import { CgArrowLongRight } from 'react-icons/cg';
 
 const schema = z.object({
   name: z.string().nonempty('Name is required'),
@@ -14,7 +13,6 @@ const schema = z.object({
 });
 
 type SubscribeFormValues = z.infer<typeof schema> & { plan?: string };
-
 
 export const SubscribeForm: FC = () => {
   const [open, setOpen] = useState(false);
@@ -31,7 +29,6 @@ export const SubscribeForm: FC = () => {
       email: '',
     },
   });
-
 
   const onSubmit = (data: SubscribeFormValues) => {
     console.log(data);
@@ -54,7 +51,7 @@ export const SubscribeForm: FC = () => {
                   )}
                   {...field}
                   type="text"
-                  placeholder='Your name'
+                  placeholder="Your name"
                 />
                 {errors.name && <p className="absolute bottom-0 left-0 text-accent text-lg">{errors.name.message}</p>}
               </>
@@ -75,7 +72,7 @@ export const SubscribeForm: FC = () => {
                   )}
                   {...field}
                   type="text"
-                  placeholder='Your email adddress'
+                  placeholder="Your email adddress"
                 />
                 {errors.email && <p className="absolute bottom-0 left-0 text-accent text-lg">{errors.email.message}</p>}
               </>
@@ -86,7 +83,7 @@ export const SubscribeForm: FC = () => {
           <Button className="w-[270px] rounded-full flex justify-center items-center transition">
             Get Started
             <span>
-              <CgArrowLongRight className='text-[30px]' />
+              <CgArrowLongRight className="text-[30px]" />
             </span>
           </Button>
         </div>

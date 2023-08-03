@@ -9,7 +9,6 @@ interface AccordionProps {
 }
 
 export const Accordion: React.FC<AccordionProps> = ({ data }) => {
-
   return (
     <motion.div
       initial="initial"
@@ -24,9 +23,7 @@ export const Accordion: React.FC<AccordionProps> = ({ data }) => {
           <>
             <div className=" drop-shadow-primary bg-white rounded-[10px] transition-all duration-300">
               <div className="flex justify-start items-center w-full h-[90px] px-[35px]">
-                <Disclosure.Button
-                  className="flex items-center justify-between w-full"
-                >
+                <Disclosure.Button className="flex items-center justify-between w-full">
                   <span className="lead font-semibold leading-snug text-left p-2">{data.question}</span>
                   <span className="transition-all duration-300">
                     {open ? (
@@ -63,6 +60,5 @@ export const Accordion: React.FC<AccordionProps> = ({ data }) => {
         )}
       </Disclosure>
     </motion.div>
-
   );
 };

@@ -5,7 +5,7 @@ import boy from '../images/about/boy.svg';
 
 export const About = () => {
   return (
-    <section className="mb-[30px] lg:mb-[60px]">
+    <section className="mb-[30px] lg:mb-[60px]" id="about-us">
       <Container>
         <motion.div
           variants={staggerTextContainer}
